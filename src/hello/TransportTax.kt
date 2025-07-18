@@ -1,8 +1,10 @@
 package hello
 
 fun main(){
+    val typeOfVehicle = readln().toBoolean()
     val power = readln().toInt()
-    val praise: Int
+    var praise: Int
+    var typeOfVehicleString = "легковой автомобиль"
 
     if (power <= 100) {
         praise = 10
@@ -16,7 +18,24 @@ fun main(){
         praise = 150
     }
 
-    println("Вид ТС: легковой автомобиль")
+    if (typeOfVehicle) {
+        typeOfVehicleString = "грузовой автомобиль"
+        if (power <= 100) {
+            praise = 25
+        } else if (power <= 150) {
+            praise = 40
+        } else if (power <= 200) {
+            praise = 50
+        } else if (power <= 250) {
+            praise = 65
+        } else {
+            praise = 85
+        }
+
+    }
+
+
+    println("Вид ТС: $typeOfVehicleString")
     println("Мощность двигателя: $power л.с.")
     println("Налоговая ставка: $praise руб./л.с.")
     println("Сумма налога: ${praise * power} руб.")
